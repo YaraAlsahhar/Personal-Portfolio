@@ -46,8 +46,8 @@ nav {
     text-align: center;
     padding: 20px;
     background: 
-    radial-gradient(circle at top,#ec489930,transparent 40%),
-    radial-gradient(circle at bottom,#3b82f630,transparent 40%),
+    radial-gradient(circle at top, #ffb6c130, transparent 40%), /* Updated: Light Pink background */
+    radial-gradient(circle at bottom, #3b82f630, transparent 40%),
     #050816;
 }
 
@@ -110,11 +110,12 @@ nav {
     position: absolute;
     top: 15px;
     left: 15px;
-    background: #ec4899;
+    background: #ffb6c1; /* Updated: Pastel Pink background */
     padding: 8px 15px;
     border-radius: 30px;
     font-weight: bold;
     font-size: 14px;
+    color: #8c1c4f; /* Added: Dark pink text for readability on light pink */
 }
 
 .content {
@@ -134,7 +135,7 @@ nav {
 .btn {
     display: block;
     text-align: center;
-    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    background: linear-gradient(135deg, #ffb6c1, #f472b6); /* Updated: Entirely pink gradient from light to mid pink */
     padding: 14px;
     border-radius: 12px;
     text-decoration: none;
@@ -210,20 +211,16 @@ footer {
 <section class="hero">
     <div>
         <h1>ملف الأعمال</h1>
-        <p>أهلًا بكم في ملف أعمال يارا السحّار. تصفح الأقسام بالأسفل لرؤية مشاريعي المختلفة في صناعة المحتوى والتصوير.</p>
-        <p></p>
+        <p>مرحباً بك في معرض أعمالي. تصفح الأقسام بالأسفل لرؤية مشاريعي المختلفة في صناعة المحتوى والتصوير.</p>
     </div>
 </section>
 
-<!-- القسم الذي تتغير فيه المحتويات -->
 <section class="section" id="portfolio-start">
     
-    <!-- 1. الصفحة الرئيسية (التصنيفات الثلاثة) -->
     <div id="main-view" class="view-section active-view">
         <h2 class="title">أقسام الأعمال</h2>
         <div class="grid">
             
-            <!-- مربع Woven -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800" alt="Woven">
@@ -235,7 +232,6 @@ footer {
                 </div>
             </div>
 
-            <!-- مربع العبايات -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1583391733958-d150247bf209?w=800" alt="Abaya">
@@ -247,7 +243,6 @@ footer {
                 </div>
             </div>
 
-            <!-- مربع الكوفي شوب -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=800" alt="Coffee Shop">
@@ -262,13 +257,11 @@ footer {
         </div>
     </div>
 
-    <!-- 2. قسم Woven (5 مقاطع مع مشاهدات ولايكات ورابط) -->
     <div id="woven-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">أعمالي مع Woven</h2>
         <div class="grid">
             
-            <!-- مقطع 1 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800">
@@ -281,7 +274,6 @@ footer {
                 </div>
             </div>
 
-            <!-- مقطع 2 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800">
@@ -294,7 +286,6 @@ footer {
                 </div>
             </div>
 
-            <!-- مقطع 3 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800">
@@ -307,7 +298,6 @@ footer {
                 </div>
             </div>
 
-            <!-- مقطع 4 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800">
@@ -320,7 +310,6 @@ footer {
                 </div>
             </div>
 
-            <!-- مقطع 5 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800">
@@ -336,7 +325,6 @@ footer {
         </div>
     </div>
 
-    <!-- 3. قسم العبايات (صور فقط بدون مشاهدات أو أزرار) -->
     <div id="abaya-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">جلسات تصوير - عبايات</h2>
@@ -361,13 +349,11 @@ footer {
         </div>
     </div>
 
-    <!-- 4. قسم الكوفي شوب (3 مقاطع بدون مشاهدات أو لايكات) -->
     <div id="coffee-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">أعمالي مع الكوفي شوب</h2>
         <div class="grid">
             
-            <!-- مقطع كوفي 1 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800">
@@ -378,7 +364,6 @@ footer {
                 </div>
             </div>
 
-            <!-- مقطع كوفي 2 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800">
@@ -389,7 +374,6 @@ footer {
                 </div>
             </div>
 
-            <!-- مقطع كوفي 3 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800">
@@ -409,7 +393,6 @@ footer {
     © 2026 Portfolio
 </footer>
 
-<!-- كود الجافاسكربت للتنقل بين الأقسام -->
 <script>
     function showView(viewId) {
         // إخفاء جميع الأقسام
@@ -430,4 +413,4 @@ footer {
 </script>
 
 </body>
-</html>
+</html>```
