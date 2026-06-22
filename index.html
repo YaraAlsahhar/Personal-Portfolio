@@ -116,7 +116,7 @@ nav {
 /* مشغل الفيديو المدمج */
 .inline-video {
     width: 100%;
-    height: 450px; /* طول مناسب لمقاطع الطولية (ريلز/تيك توك) */
+    height: 450px; 
     object-fit: cover;
     background-color: #000;
     display: block;
@@ -174,7 +174,6 @@ nav {
     opacity: .9;
 }
 
-/* تعديلات كروت الصور للـ Lightbox */
 .photo-card {
     border-radius: 25px;
     overflow: hidden;
@@ -195,20 +194,32 @@ nav {
     transform: scale(1.05);
 }
 
+/* تصميم زر العودة الجديد والمحسن */
 .back-btn {
-    display: inline-block;
-    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto 40px auto; /* توسيط الزر في منتصف الصفحة */
+    background: rgba(255, 255, 255, 0.05);
     color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
+    padding: 15px 35px;
+    border-radius: 50px; /* شكل بيضاوي مريح للعين */
     text-decoration: none;
-    margin-bottom: 30px;
-    transition: 0.3s;
+    font-size: 18px;
+    font-weight: 800;
+    transition: all 0.4s ease;
     cursor: pointer;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    width: fit-content;
 }
 .back-btn:hover {
-    background: rgba(255,255,255,0.2);
+    background: linear-gradient(135deg, #ffb6c1, #f472b6);
+    color: #050816; /* لون نص داكن ليتناسب مع الخلفية الوردية */
+    border-color: transparent;
+    transform: translateY(-5px); /* ارتفاع بسيط عند التمرير */
+    box-shadow: 0 15px 30px rgba(244, 114, 182, 0.3); /* توهج وردي خفيف */
 }
 
 .view-section {
@@ -317,7 +328,6 @@ footer {
                 </div>
             </div>
 
-            <!-- تم تعديل كرت القائمة الرئيسية لـ Centro -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/CentroBrand.jpg" alt="Centro Coffee">
@@ -334,7 +344,7 @@ footer {
 
     <!-- قسم أعمال Woven -->
     <div id="woven-view" class="view-section">
-        <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
+        <button class="back-btn" onclick="showView('main-view')">🔙 العودة للقائمة الرئيسية</button>
         <h2 class="title">أعمالي مع Woven</h2>
         <div class="grid">
             
@@ -379,7 +389,7 @@ footer {
 
     <!-- قسم العبايات -->
     <div id="abaya-view" class="view-section">
-        <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
+        <button class="back-btn" onclick="showView('main-view')">🔙 العودة للقائمة الرئيسية</button>
         <h2 class="title">جلسات تصوير - عبايات</h2>
         <div class="grid">
             
@@ -398,15 +408,13 @@ footer {
         </div>
     </div>
 
-    <!-- قسم Centro (الكوفي شوب سابقاً) -->
+    <!-- قسم Centro -->
     <div id="coffee-view" class="view-section">
-        <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
+        <button class="back-btn" onclick="showView('main-view')">🔙 العودة للقائمة الرئيسية</button>
         <h2 class="title">أعمالي مع عربة Centro</h2>
         <div class="grid">
             
-            <!-- المقطع الأول Centro -->
             <div class="card">
-                <!-- خاصية preload="none" تمنع التعليق والتحميل المسبق -->
                 <video class="inline-video" controls preload="none" poster="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/CentroBrand.jpg">
                     <source src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Centro1.mp4" type="video/mp4">
                     متصفحك لا يدعم تشغيل الفيديو.
@@ -416,7 +424,6 @@ footer {
                 </div>
             </div>
 
-            <!-- المقطع الثاني Centro -->
             <div class="card">
                 <video class="inline-video" controls preload="none" poster="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/CentroBrand.jpg">
                     <source src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Centro2.mp4" type="video/mp4">
@@ -427,7 +434,6 @@ footer {
                 </div>
             </div>
 
-            <!-- المقطع الثالث Centro -->
             <div class="card">
                 <video class="inline-video" controls preload="none" poster="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/CentroBrand.jpg">
                     <source src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Centro3.mp4" type="video/mp4">
