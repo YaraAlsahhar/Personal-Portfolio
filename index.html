@@ -113,6 +113,15 @@ nav {
     display: block;
 }
 
+/* مشغل الفيديو المدمج */
+.inline-video {
+    width: 100%;
+    height: 450px; /* طول مناسب لمقاطع الطولية (ريلز/تيك توك) */
+    object-fit: cover;
+    background-color: #000;
+    display: block;
+}
+
 .views {
     position: absolute;
     top: 15px;
@@ -173,8 +182,8 @@ nav {
     height: 400px;
     flex: 1 1 300px;
     max-width: 340px;
-    cursor: zoom-in; /* تغيير المؤشر لعدسة تكبير */
-    display: block; /* إزالة خصائص الرابط الافتراضية */
+    cursor: zoom-in;
+    display: block;
 }
 .photo-card img {
     width: 100%;
@@ -211,7 +220,7 @@ nav {
 
 /* تنسيقات الـ Lightbox (صندوق الإضاءة) */
 .lightbox {
-    display: none; /* مخفي افتراضياً */
+    display: none;
     position: fixed;
     z-index: 9999;
     padding-top: 50px;
@@ -220,7 +229,7 @@ nav {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* خلفية سوداء شفافة */
+    background-color: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(5px);
 }
 
@@ -231,8 +240,8 @@ nav {
     max-height: 85vh;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(255,255,255,0.2);
-    animation: zoomIn 0.3s ease; /* حركة ظهور ناعمة */
-    object-fit: contain; /* للحفاظ على أبعاد الصورة كاملة */
+    animation: zoomIn 0.3s ease;
+    object-fit: contain;
 }
 
 @keyframes zoomIn {
@@ -253,7 +262,7 @@ nav {
 
 .close-lightbox:hover,
 .close-lightbox:focus {
-    color: #ffb6c1; /* تغيير اللون عند التمرير */
+    color: #ffb6c1;
     text-decoration: none;
     cursor: pointer;
 }
@@ -308,12 +317,13 @@ footer {
                 </div>
             </div>
 
+            <!-- تم تعديل كرت القائمة الرئيسية لـ Centro -->
             <div class="card">
                 <div class="thumb">
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=800" alt="Coffee Shop">
+                    <img src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/CentroBrand.jpg" alt="Centro Coffee">
                 </div>
                 <div class="content">
-                    <h3>أعمالي مع الكوفي شوب</h3>
+                    <h3>عربة القهوة المختصة Centro</h3>
                     <p class="likes">تغطيات وصناعة محتوى للمقهى</p>
                     <button class="btn" onclick="showView('coffee-view')">عرض المقاطع</button>
                 </div>
@@ -367,7 +377,7 @@ footer {
         </div>
     </div>
 
-    <!-- قسم العبايات (معدل للعمل مع الـ Lightbox) -->
+    <!-- قسم العبايات -->
     <div id="abaya-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">جلسات تصوير - عبايات</h2>
@@ -388,14 +398,46 @@ footer {
         </div>
     </div>
 
-    <!-- قسم القهوة -->
+    <!-- قسم Centro (الكوفي شوب سابقاً) -->
     <div id="coffee-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
-        <h2 class="title">أعمالي مع الكوفي شوب</h2>
+        <h2 class="title">أعمالي مع عربة Centro</h2>
         <div class="grid">
-            <div class="card"><div class="thumb"><img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800"></div><div class="content"><h3>تغطية المقهى</h3><a href="#" target="_blank" class="btn">مشاهدة المقطع</a></div></div>
-            <div class="card"><div class="thumb"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800"></div><div class="content"><h3>المنتجات الجديدة</h3><a href="#" target="_blank" class="btn">مشاهدة المقطع</a></div></div>
-            <div class="card"><div class="thumb"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800"></div><div class="content"><h3>أجواء المكان</h3><a href="#" target="_blank" class="btn">مشاهدة المقطع</a></div></div>
+            
+            <!-- المقطع الأول Centro -->
+            <div class="card">
+                <!-- خاصية preload="none" تمنع التعليق والتحميل المسبق -->
+                <video class="inline-video" controls preload="none" poster="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/CentroBrand.jpg">
+                    <source src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Centro1.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+                <div class="content">
+                    <h3>تغطية المقطع الأول</h3>
+                </div>
+            </div>
+
+            <!-- المقطع الثاني Centro -->
+            <div class="card">
+                <video class="inline-video" controls preload="none" poster="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/CentroBrand.jpg">
+                    <source src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Centro2.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+                <div class="content">
+                    <h3>تغطية المقطع الثاني</h3>
+                </div>
+            </div>
+
+            <!-- المقطع الثالث Centro -->
+            <div class="card">
+                <video class="inline-video" controls preload="none" poster="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/CentroBrand.jpg">
+                    <source src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Centro3.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+                <div class="content">
+                    <h3>تغطية المقطع الثالث</h3>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -416,6 +458,11 @@ footer {
         const views = document.querySelectorAll('.view-section');
         views.forEach(view => {
             view.classList.remove('active-view');
+            // إيقاف أي فيديو شغال عند الخروج من القسم
+            const videos = view.querySelectorAll('video');
+            videos.forEach(video => {
+                video.pause();
+            });
         });
         const targetView = document.getElementById(viewId);
         if (targetView) {
@@ -428,28 +475,23 @@ footer {
     function openLightbox(element) {
         const lightbox = document.getElementById("myLightbox");
         const lightboxImg = document.getElementById("lightboxImage");
-        // أخذ مسار الصورة من العنصر المضغوط
         const imgSrc = element.querySelector('img').src;
         
         lightbox.style.display = "block";
         lightboxImg.src = imgSrc;
         
-        // منع تمرير الصفحة (السكرول) أثناء فتح الصورة
         document.body.style.overflow = "hidden";
     }
 
     function closeLightboxBtn() {
         document.getElementById("myLightbox").style.display = "none";
-        // إعادة تفعيل التمرير
         document.body.style.overflow = "auto";
     }
 
-    // إغلاق الصندوق عند النقر في أي مكان خارج الصورة
     function closeLightbox(event) {
         const lightbox = document.getElementById("myLightbox");
         const lightboxImg = document.getElementById("lightboxImage");
         
-        // التأكد أن النقر لم يكن على الصورة نفسها
         if (event.target !== lightboxImg) {
             lightbox.style.display = "none";
             document.body.style.overflow = "auto";
