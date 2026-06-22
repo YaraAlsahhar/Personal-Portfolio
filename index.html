@@ -165,6 +165,7 @@ nav {
     opacity: .9;
 }
 
+/* تعديلات كروت الصور للـ Lightbox */
 .photo-card {
     border-radius: 25px;
     overflow: hidden;
@@ -172,7 +173,8 @@ nav {
     height: 400px;
     flex: 1 1 300px;
     max-width: 340px;
-    cursor: pointer;
+    cursor: zoom-in; /* تغيير المؤشر لعدسة تكبير */
+    display: block; /* إزالة خصائص الرابط الافتراضية */
 }
 .photo-card img {
     width: 100%;
@@ -206,6 +208,56 @@ nav {
 .active-view {
     display: block;
 }
+
+/* تنسيقات الـ Lightbox (صندوق الإضاءة) */
+.lightbox {
+    display: none; /* مخفي افتراضياً */
+    position: fixed;
+    z-index: 9999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* خلفية سوداء شفافة */
+    backdrop-filter: blur(5px);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    animation: zoomIn 0.3s ease; /* حركة ظهور ناعمة */
+    object-fit: contain; /* للحفاظ على أبعاد الصورة كاملة */
+}
+
+@keyframes zoomIn {
+    from {transform:scale(0.8); opacity:0;}
+    to {transform:scale(1); opacity:1;}
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-lightbox:hover,
+.close-lightbox:focus {
+    color: #ffb6c1; /* تغيير اللون عند التمرير */
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 footer {
     padding: 40px;
@@ -270,6 +322,7 @@ footer {
         </div>
     </div>
 
+    <!-- قسم أعمال Woven -->
     <div id="woven-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">أعمالي مع Woven</h2>
@@ -314,26 +367,28 @@ footer {
         </div>
     </div>
 
+    <!-- قسم العبايات (معدل للعمل مع الـ Lightbox) -->
     <div id="abaya-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">جلسات تصوير - عبايات</h2>
         <div class="grid">
             
-            <a href="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Abaya1.jpg" target="_blank" class="photo-card">
+            <div class="photo-card" onclick="openLightbox(this)">
                 <img src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Abaya1.jpg" alt="صورة 1">
-            </a>
+            </div>
             
-            <a href="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Abaya2.jpg" target="_blank" class="photo-card">
+            <div class="photo-card" onclick="openLightbox(this)">
                 <img src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Abaya2.jpg" alt="صورة 2">
-            </a>
+            </div>
             
-            <a href="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Abaya3.jpg" target="_blank" class="photo-card">
+            <div class="photo-card" onclick="openLightbox(this)">
                 <img src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Abaya3.jpg" alt="صورة 3">
-            </a>
+            </div>
             
         </div>
     </div>
 
+    <!-- قسم القهوة -->
     <div id="coffee-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">أعمالي مع الكوفي شوب</h2>
@@ -345,6 +400,12 @@ footer {
     </div>
 
 </section>
+
+<!-- عنصر الـ Lightbox (الصندوق المنبثق) -->
+<div id="myLightbox" class="lightbox" onclick="closeLightbox(event)">
+    <span class="close-lightbox" onclick="closeLightboxBtn()">&times;</span>
+    <img class="lightbox-content" id="lightboxImage">
+</div>
 
 <footer>
     © 2026 Portfolio
@@ -361,6 +422,38 @@ footer {
             targetView.classList.add('active-view');
         }
         document.getElementById('portfolio-start').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // دوال الـ Lightbox
+    function openLightbox(element) {
+        const lightbox = document.getElementById("myLightbox");
+        const lightboxImg = document.getElementById("lightboxImage");
+        // أخذ مسار الصورة من العنصر المضغوط
+        const imgSrc = element.querySelector('img').src;
+        
+        lightbox.style.display = "block";
+        lightboxImg.src = imgSrc;
+        
+        // منع تمرير الصفحة (السكرول) أثناء فتح الصورة
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeLightboxBtn() {
+        document.getElementById("myLightbox").style.display = "none";
+        // إعادة تفعيل التمرير
+        document.body.style.overflow = "auto";
+    }
+
+    // إغلاق الصندوق عند النقر في أي مكان خارج الصورة
+    function closeLightbox(event) {
+        const lightbox = document.getElementById("myLightbox");
+        const lightboxImg = document.getElementById("lightboxImage");
+        
+        // التأكد أن النقر لم يكن على الصورة نفسها
+        if (event.target !== lightboxImg) {
+            lightbox.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
     }
 </script>
 
