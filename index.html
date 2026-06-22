@@ -75,7 +75,7 @@ nav {
     margin-bottom: 50px;
 }
 
-/* تم تحديث الشبكة لتدعم توزيع 5 عناصر بشكل متناسق ومتوسط */
+/* التوزيع المرن للعناصر (Flexbox) */
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -83,7 +83,6 @@ nav {
     gap: 30px;
 }
 
-/* تم توحيد مقاسات الكروت ومنعها من التمدد العشوائي */
 .card {
     background: rgba(255,255,255,.04);
     border: 1px solid rgba(255,255,255,.08);
@@ -91,8 +90,8 @@ nav {
     border-radius: 25px;
     overflow: hidden;
     transition: .4s;
-    flex: 1 1 300px; /* العرض الأساسي */
-    max-width: 340px; /* أقصى عرض حتى لا تتمدد كثيراً */
+    flex: 1 1 300px; 
+    max-width: 340px; 
     display: flex;
     flex-direction: column;
 }
@@ -109,7 +108,7 @@ nav {
 
 .thumb img {
     width: 100%;
-    height: 320px; /* زيادة الطول قليلاً ليناسب طبيعة التيك توك */
+    height: 320px; 
     object-fit: cover;
     display: block;
 }
@@ -166,7 +165,6 @@ nav {
     opacity: .9;
 }
 
-/* تصميم كروت الصور فقط (للعبايات) */
 .photo-card {
     border-radius: 25px;
     overflow: hidden;
@@ -185,7 +183,6 @@ nav {
     transform: scale(1.05);
 }
 
-/* زر العودة */
 .back-btn {
     display: inline-block;
     background: rgba(255,255,255,0.1);
@@ -202,7 +199,6 @@ nav {
     background: rgba(255,255,255,0.2);
 }
 
-/* إخفاء الأقسام الفرعية في البداية */
 .view-section {
     display: none;
 }
@@ -273,11 +269,13 @@ footer {
         </div>
     </div>
 
+    <!-- قسم أعمال Woven -->
     <div id="woven-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">أعمالي مع Woven</h2>
         <div class="grid">
             
+            <!-- المقطع 1 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Woven1.png" alt="صورة المقطع الأول">
@@ -290,18 +288,20 @@ footer {
                 </div>
             </div>
 
+            <!-- المقطع 2 (المضاف حديثاً) -->
             <div class="card">
                 <div class="thumb">
-                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800" alt="صورة المقطع الثاني">
-                    <div class="views">👁 قريباً</div>
+                    <img src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Woven2.png" alt="صورة المقطع الثاني">
+                    <div class="views">👁 74.8 ألف</div>
                 </div>
                 <div class="content">
                     <h3>المقطع الثاني</h3>
-                    <div class="likes">❤️ قريباً</div>
-                    <a href="#" target="_blank" class="btn">مشاهدة المقطع</a>
+                    <div class="likes">❤️ 1100+ إعجاب</div>
+                    <a href="https://www.tiktok.com/@woven_sa/video/7457678827234282770?is_from_webapp=1&sender_device=pc" target="_blank" class="btn">مشاهدة المقطع عبر تيك توك</a>
                 </div>
             </div>
 
+            <!-- المقطع 3 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800" alt="صورة المقطع الثالث">
@@ -314,6 +314,7 @@ footer {
                 </div>
             </div>
 
+            <!-- المقطع 4 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800" alt="صورة المقطع الرابع">
@@ -326,6 +327,7 @@ footer {
                 </div>
             </div>
 
+            <!-- المقطع 5 -->
             <div class="card">
                 <div class="thumb">
                     <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800" alt="صورة المقطع الخامس">
@@ -341,6 +343,7 @@ footer {
         </div>
     </div>
 
+    <!-- قسم العبايات -->
     <div id="abaya-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">جلسات تصوير - عبايات</h2>
@@ -352,6 +355,7 @@ footer {
         </div>
     </div>
 
+    <!-- قسم القهوة -->
     <div id="coffee-view" class="view-section">
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">أعمالي مع الكوفي شوب</h2>
