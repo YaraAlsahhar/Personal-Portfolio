@@ -75,13 +75,15 @@ nav {
     margin-bottom: 50px;
 }
 
+/* تم تحديث الشبكة لتدعم توزيع 5 عناصر بشكل متناسق ومتوسط */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
 }
 
-/* تصميم الكروت */
+/* تم توحيد مقاسات الكروت ومنعها من التمدد العشوائي */
 .card {
     background: rgba(255,255,255,.04);
     border: 1px solid rgba(255,255,255,.08);
@@ -89,6 +91,10 @@ nav {
     border-radius: 25px;
     overflow: hidden;
     transition: .4s;
+    flex: 1 1 300px; /* العرض الأساسي */
+    max-width: 340px; /* أقصى عرض حتى لا تتمدد كثيراً */
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -98,12 +104,14 @@ nav {
 
 .thumb {
     position: relative;
+    width: 100%;
 }
 
 .thumb img {
     width: 100%;
-    height: 250px;
+    height: 320px; /* زيادة الطول قليلاً ليناسب طبيعة التيك توك */
     object-fit: cover;
+    display: block;
 }
 
 .views {
@@ -120,16 +128,21 @@ nav {
 
 .content {
     padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .content h3 {
-    margin-bottom: 15px;
-    font-size: 24px;
+    margin-bottom: 10px;
+    font-size: 22px;
 }
 
 .likes {
     color: #94a3b8;
     margin-bottom: 20px;
+    font-size: 15px;
 }
 
 .btn {
@@ -146,6 +159,7 @@ nav {
     border: none;
     width: 100%;
     font-size: 16px;
+    margin-top: auto;
 }
 
 .btn:hover {
@@ -158,6 +172,8 @@ nav {
     overflow: hidden;
     transition: .4s;
     height: 400px;
+    flex: 1 1 300px;
+    max-width: 340px;
 }
 .photo-card img {
     width: 100%;
@@ -223,7 +239,7 @@ footer {
             
             <div class="card">
                 <div class="thumb">
-                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800" alt="Woven">
+                    <img src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Woven1.png" alt="Woven">
                 </div>
                 <div class="content">
                     <h3>أعمالي مع Woven</h3>
@@ -264,13 +280,61 @@ footer {
             
             <div class="card">
                 <div class="thumb">
-                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800" alt="صورة من المقطع">
+                    <img src="https://raw.githubusercontent.com/YaraAlsahhar/Personal-Portfolio/main/Photos/Woven1.png" alt="صورة المقطع الأول">
                     <div class="views">👁 186.8 ألف</div>
                 </div>
                 <div class="content">
                     <h3>مقطع ترويجي</h3>
                     <div class="likes">❤️ 8000+ إعجاب</div>
                     <a href="https://vt.tiktok.com/ZSQKVBgFa/" target="_blank" class="btn">مشاهدة المقطع عبر تيك توك</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="thumb">
+                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800" alt="صورة المقطع الثاني">
+                    <div class="views">👁 قريباً</div>
+                </div>
+                <div class="content">
+                    <h3>المقطع الثاني</h3>
+                    <div class="likes">❤️ قريباً</div>
+                    <a href="#" target="_blank" class="btn">مشاهدة المقطع</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="thumb">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800" alt="صورة المقطع الثالث">
+                    <div class="views">👁 قريباً</div>
+                </div>
+                <div class="content">
+                    <h3>المقطع الثالث</h3>
+                    <div class="likes">❤️ قريباً</div>
+                    <a href="#" target="_blank" class="btn">مشاهدة المقطع</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="thumb">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800" alt="صورة المقطع الرابع">
+                    <div class="views">👁 قريباً</div>
+                </div>
+                <div class="content">
+                    <h3>المقطع الرابع</h3>
+                    <div class="likes">❤️ قريباً</div>
+                    <a href="#" target="_blank" class="btn">مشاهدة المقطع</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="thumb">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800" alt="صورة المقطع الخامس">
+                    <div class="views">👁 قريباً</div>
+                </div>
+                <div class="content">
+                    <h3>المقطع الخامس</h3>
+                    <div class="likes">❤️ قريباً</div>
+                    <a href="#" target="_blank" class="btn">مشاهدة المقطع</a>
                 </div>
             </div>
 
@@ -281,23 +345,10 @@ footer {
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">جلسات تصوير - عبايات</h2>
         <div class="grid">
-            
-            <div class="photo-card">
-                <img src="https://images.unsplash.com/photo-1603574670812-d24560880211?w=800" alt="صورة 1">
-            </div>
-            
-            <div class="photo-card">
-                <img src="https://images.unsplash.com/photo-1600854486955-40742f38d3de?w=800" alt="صورة 2">
-            </div>
-            
-            <div class="photo-card">
-                <img src="https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=800" alt="صورة 3">
-            </div>
-
-            <div class="photo-card">
-                <img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?w=800" alt="صورة 4">
-            </div>
-
+            <div class="photo-card"><img src="https://images.unsplash.com/photo-1603574670812-d24560880211?w=800" alt="صورة 1"></div>
+            <div class="photo-card"><img src="https://images.unsplash.com/photo-1600854486955-40742f38d3de?w=800" alt="صورة 2"></div>
+            <div class="photo-card"><img src="https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?w=800" alt="صورة 3"></div>
+            <div class="photo-card"><img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?w=800" alt="صورة 4"></div>
         </div>
     </div>
 
@@ -305,37 +356,9 @@ footer {
         <button class="back-btn" onclick="showView('main-view')">🔙 العودة للأقسام</button>
         <h2 class="title">أعمالي مع الكوفي شوب</h2>
         <div class="grid">
-            
-            <div class="card">
-                <div class="thumb">
-                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800">
-                </div>
-                <div class="content">
-                    <h3>تغطية المقهى</h3>
-                    <a href="#" target="_blank" class="btn">مشاهدة المقطع</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="thumb">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800">
-                </div>
-                <div class="content">
-                    <h3>المنتجات الجديدة</h3>
-                    <a href="#" target="_blank" class="btn">مشاهدة المقطع</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="thumb">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800">
-                </div>
-                <div class="content">
-                    <h3>أجواء المكان</h3>
-                    <a href="#" target="_blank" class="btn">مشاهدة المقطع</a>
-                </div>
-            </div>
-
+            <div class="card"><div class="thumb"><img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800"></div><div class="content"><h3>تغطية المقهى</h3><a href="#" target="_blank" class="btn">مشاهدة المقطع</a></div></div>
+            <div class="card"><div class="thumb"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800"></div><div class="content"><h3>المنتجات الجديدة</h3><a href="#" target="_blank" class="btn">مشاهدة المقطع</a></div></div>
+            <div class="card"><div class="thumb"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800"></div><div class="content"><h3>أجواء المكان</h3><a href="#" target="_blank" class="btn">مشاهدة المقطع</a></div></div>
         </div>
     </div>
 
@@ -347,19 +370,14 @@ footer {
 
 <script>
     function showView(viewId) {
-        // إخفاء جميع الأقسام
         const views = document.querySelectorAll('.view-section');
         views.forEach(view => {
             view.classList.remove('active-view');
         });
-
-        // إظهار القسم المطلوب
         const targetView = document.getElementById(viewId);
         if (targetView) {
             targetView.classList.add('active-view');
         }
-
-        // التمرير السلس إلى بداية قسم الأعمال
         document.getElementById('portfolio-start').scrollIntoView({ behavior: 'smooth' });
     }
 </script>
